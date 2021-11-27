@@ -12,13 +12,13 @@ refs.form.addEventListener('submit', onFormSubmit);
 const STORAGE_KEY = 'feedback-form-state';
 const formData = {};
 
-savedForm();
+
 
 function onFormSubmit(e) {
   e.preventDefault();
-  e.currentTarget.reset();
+  e.currentTarget.reset();  
+  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
-  console.log(formData);
 }
 
 function onFormInput(e) {
@@ -38,3 +38,4 @@ function savedForm() {
         refs.textarea.value = parsedFormData.message;
     };
 }
+savedForm();
